@@ -1,6 +1,7 @@
 <div class="map-container">            
-        <agm-map #AgmMap [latitude]="lat"
-        [longitude]="lng" 
+        <agm-map #AgmMap [latitude]="mapCenterLat"
+        [zoom]="10"
+        [longitude]="mapCenterLng" 
         [styles]="styles"
         (mapReady)="mapReady($event)">
         </agm-map>
@@ -13,36 +14,48 @@
                 <div class="logo">
                     <img src="../../../assets/logo.svg" alt="">
                 </div>
-
-                V I A
             </div>
 
             <div class="explore-info">
-                <span class="item-label">Presupuesto</span>
-                <span class="item-value">$3,000,000</span>
-
                 <span class="item-label">Explorando el área</span>
                 <span class="item-value">Nuevo Leon</span>
+            
+                <span class="item-label">Presupuesto</span>
+                <span class="item-value last">{{ budget | currency:'USD':'symbol':'1.0-0' }}</span>
+                <div class="slider-container">
+                    <mat-slider (change)="budgetChange($event)" min="1000000" max="10000000" step="100000" value="3000000"></mat-slider>
+                </div>
             </div>
 
-            <div class="favorites">
-                <div class="favorites-header text-center">
-                    <i class="material-icons">favorite</i>
+            <div class="favorites text-left">
+                <div class="favorites-header">
                     Favoritos
                 </div>
 
                 <div class="favorites-container">
                     <ul class="favorites-list">
-                        <li><mat-checkbox>Opcion 1</mat-checkbox></li>
-                        <li><mat-checkbox>Opcion 2</mat-checkbox></li>
-                        <li><mat-checkbox>Opcion 3</mat-checkbox></li>
+                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407<i class="material-icons right">favorite</i></li>
+                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407 <i class="material-icons right">favorite</i></li>
+                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407<i class="material-icons right">favorite</i></li>
                     </ul>
 
                     <div class="text-right">
-                        
+                        <button class="submit-button">Comparar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+
+    </div>
+
+    <div class="layers-controller" *ngIf="layersActive">
+        <ul class="layers-list">
+            <li><mat-checkbox>Poblacion actual</mat-checkbox></li>
+            <li><mat-checkbox>Proyeccion a futuro</mat-checkbox></li>
+            <li><mat-checkbox>Competidores</mat-checkbox></li>
+            <li><mat-checkbox>Flujo vial</mat-checkbox></li>
+            <li><mat-checkbox>Flujo de personas</mat-checkbox></li>
+        </ul>
+    </div>
+    <button (click)="layersActive = !layersActive" class="layers-toggle" mat-fab><i class="material-icons">layers</i></button>
 </div>
