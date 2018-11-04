@@ -41,10 +41,22 @@ export class IntroductionComponent {
 
     private question: string;
     private questions: Array<any> = [
-        {m: '¡Hola Pedro!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5500, s: 1},
-        {m: '¿Cuales son las prioridades del<br>cliente?', t: 4000, s: 2},
-        {m: '¿Cuál es el presupuesto y <br>el área de interes?', t: 4000, s: 3},
-        {m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4}
+        {
+            speak: '¡Hola Pedro! Bienvenido de regreso, encontremos el mejor punto de venta',
+            m: '¡Hola Pedro!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5500, s: 1
+        },
+        {
+            speak: '¿Cuales son las prioridades del cliente?',
+            m: '¿Cuales son las prioridades del<br>cliente?', t: 4000, s: 2
+        },
+        {
+            speak: '¿Cuál es el presupuesto y <br>el área de interés?',
+            m: '¿Cuál es el presupuesto y <br>el área de interes?', t: 4000, s: 3
+        },
+        {
+            speak: '¿Que área vamos a explorar hoy?',
+            m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4
+        }
     ];
 
     constructor(private core: CoreService, private router: Router) {
@@ -59,7 +71,7 @@ export class IntroductionComponent {
     }
 
     private speak(step: any, speak: boolean): void {
-        this.speech.speak({ text: step.m });
+        this.speech.speak({ text: step.speak });
         this.stepActive = step.s;
 
         if (speak) {
