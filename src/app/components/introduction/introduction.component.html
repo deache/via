@@ -1,0 +1,14 @@
+<div class="map-container">            
+    <agm-map #AgmMap [zoom]="20" [latitude]="lat" [longitude]="lng" (mapReady)="mapReady($event)">
+    </agm-map>
+</div>
+<div class="steps-wrapper">
+    <div class="speak-msg text-center" [ngClass]="{'fadeDiagonal': stateDiag}">
+        <img src="../../../assets/logo.svg" alt="">
+        <div class="speak-msg__text" [ngClass]="{'fadeIn': stateFade, 'fadeOut': !stateFade}" [innerHTML]="question">
+        </div>
+    </div>
+    <div class="step-btns" *ngIf="stepActive > 1">
+        <span (click)="prev()"><</span>&nbsp;<span (click)="next()">></span>
+    </div>
+</div>

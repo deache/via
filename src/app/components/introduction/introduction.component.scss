@@ -1,0 +1,62 @@
+@import '../../../assets/colors';
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    agm-map {
+        height: inherit;
+    }
+}
+
+.steps-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $black-background;
+
+    .speak-msg{
+        margin-top: 227px;
+        img{
+            width: 173px;
+            height: 175px;
+        }
+        &__text{
+            margin-top: 70px;
+            color: #ffff;
+            font-size: 70px;
+            font-weight: 300;
+
+        }
+    }
+
+    .step-btns{
+        float: right;
+        padding-right: 89px;
+        font-weight: bold;
+        font-size: 75px;
+        font-family: monospace;
+        position: fixed;
+        bottom: -10px;
+        right: 15px;
+
+        span:hover{
+            color: #ffff;
+        }
+    }
+
+    .fadeDiagonal{
+        animation-name: shine;
+        animation-duration: 3s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes shine {
+        100%       { transform: translatex(-610px) translatey(-300px) scale(.5) }
+    
+    } 
+}
+

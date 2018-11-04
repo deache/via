@@ -9,3 +9,37 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .no-padding { 
     padding: 0 !important;
 }
+
+// FADE OUT ------
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+// FADE IN ------
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@keyframes fadein {
+    from { opacity:0; }
+    to { opacity:1; }
+}
+.fadeIn {
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
