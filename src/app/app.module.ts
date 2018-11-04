@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DndModule } from 'ngx-drag-drop';
 
+// Vendors
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+
+// Components
 import { AppComponent } from './app.component';
 import { IntroductionComponent } from 'src/app/components/introduction/introduction.component';
 import { CompareComponent } from 'src/app/components/compare/compare.component';
@@ -26,9 +30,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     DndModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAb0m2qsu5odK1JdmLa0EgFOiEZtn51NhQ'
+    })
   ],
-  providers: [],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
