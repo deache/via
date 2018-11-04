@@ -4,6 +4,9 @@ import { GoogleMap, Marker, MarkerOptions } from '@agm/core/services/google-maps
 declare var google: any;
 import Speech from 'speak-tts';
 import { ViewChild } from '@angular/core';
+import { Constants } from '../../constants';
+import { CoreService } from 'src/app/services/core.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-introduction',
@@ -14,6 +17,8 @@ import { ViewChild } from '@angular/core';
 export class IntroductionComponent {
 
     @ViewChild('order') public _order;
+
+    public states = Constants.states;
 
     private speech: Speech = new Speech();
 
@@ -39,10 +44,10 @@ export class IntroductionComponent {
         {m: '¡Hola Pedro!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5500, s: 1},
         {m: '¿Cuales son las prioridades del<br>cliente?', t: 4000, s: 2},
         {m: '¿Cuál es el presupuesto y <br>el área de interes?', t: 4000, s: 3},
-        // {m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4}
+        {m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4}
     ];
 
-    constructor() {
+    constructor(private core: CoreService, private router: Router) {
 
         this.question = this.questions[0].m;
         this.stateFade = true;
@@ -137,6 +142,7 @@ export class IntroductionComponent {
     }
 
     private next(): void {
+        console.log('step', this.stepActive);
         switch (this.stepActive) {
             case 2:
                 setTimeout(() => {
@@ -147,12 +153,19 @@ export class IntroductionComponent {
                 }, 100);
                 break;
             case 3:
-                setTimeout(() => {
-                    this.stateFade = false;
-                    this.showContentQua = false;
-                    this.fadeLogo = true;
-                    this.continuedFlow(3);
-                }, 100);
+                const pesos = {
+                    pesos: this._order.getPriorityOptions().map( it => it.content),
+                    inversion: this.quantity,
+                    estado: this.state
+                };
+
+                this.core.postIntroduction(pesos).subscribe((data: any) => {
+                    this.core.setNewConstruramas(data);
+                    this.core.setPesos(pesos);
+                    this.router.navigate(['exploration']);
+                });
+
+                console.log('response', pesos);
         }
 
     }

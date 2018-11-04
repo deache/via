@@ -8,14 +8,14 @@
         <div class="speak-msg__text" [ngClass]="{'fadeIn': stateFade, 'fadeOut': !stateFade}" [innerHTML]="question">
         </div>
     </div>
-    <app-priority-order #order *ngIf="orderShow" [ngClass]="{'fadeIn': stateFade && showContent, 'fadeOut': !stateFade && !showContent}"></app-priority-order>
+    <app-priority-order #order [hidden]="!orderShow" [ngClass]="{'fadeIn': stateFade && showContent, 'fadeOut': !stateFade && !showContent}"></app-priority-order>
     <div class="quantity-view" *ngIf="quantityShow" [ngClass]="{'fadeIn': stateFade && showContentQua, 'fadeOut': !stateFade && !showContentQua}">
-        <h2>Ingrese cantidad {{quantity}}</h2>
+        <h2>Ingrese cantidad</h2>
         <input type="text" placeholder="Escriba aqui" [(ngModel)]="quantity">
         <br><br><br><br>
-        <h2>Seleccione un estado {{state}}</h2>        
+        <h2>Seleccione un estado</h2>        
         <select class="form-control" [(ngModel)]="state">
-            <option [ngValue]="c">>montr</option>
+            <option *ngFor="let s of states" [ngValue]="s.id">{{s.estado}}</option>
 
         </select>
     </div>

@@ -16,7 +16,7 @@ export class PriorityOrderComponent {
       handle: false,
     },
     {
-      content: "ANÁLISIS DE COMPETENCIA",
+      content: "ANALISIS DE COMPETENCIA",
       effectAllowed: "move",
       disable: false,
       handle: false,
@@ -28,7 +28,7 @@ export class PriorityOrderComponent {
       handle: false
     },
     {
-      content: "PROYECCIÓN A FUTURO",
+      content: "PROYECCION A FUTURO",
       effectAllowed: "move",
       disable: false,
       handle: true,
