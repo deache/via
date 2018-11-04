@@ -1,3 +1,11 @@
+<div class="map-container">            
+        <agm-map #AgmMap [latitude]="lat"
+        [longitude]="lng" 
+        [styles]="styles"
+        (mapReady)="mapReady($event)">
+        </agm-map>
+</div>
+
 <div class="row">
     <div class="col-2 no-padding">
         <div class="sidebar">
@@ -9,18 +17,32 @@
                 V I A
             </div>
 
+            <div class="explore-info">
+                <span class="item-label">Presupuesto</span>
+                <span class="item-value">$3,000,000</span>
+
+                <span class="item-label">Explorando el área</span>
+                <span class="item-value">Nuevo Leon</span>
+            </div>
+
             <div class="favorites">
                 <div class="favorites-header text-center">
                     <i class="material-icons">favorite</i>
                     Favoritos
                 </div>
+
+                <div class="favorites-container">
+                    <ul class="favorites-list">
+                        <li><mat-checkbox>Opcion 1</mat-checkbox></li>
+                        <li><mat-checkbox>Opcion 2</mat-checkbox></li>
+                        <li><mat-checkbox>Opcion 3</mat-checkbox></li>
+                    </ul>
+
+                    <div class="text-right">
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-10 no-padding">
-        <div class="map-container">            
-            <agm-map #AgmMap [latitude]="lat" [longitude]="lng" [styles]="styles" (mapReady)="mapReady($event)">
-            </agm-map>
-        </div>
-    </div>
+    </div> 
 </div>

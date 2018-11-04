@@ -1,0 +1,72 @@
+<div class="map-container">
+    <agm-map #AgmMap [latitude]="lat" [longitude]="lng" [styles]="styles" (mapReady)="mapReady($event)">
+    </agm-map>
+</div>
+<div class="row">
+    <div class="col-2 no-padding">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="../../../assets/logo.svg" alt="">
+                </div>
+
+                V I A
+            </div>
+
+            <div class="explore-info">
+                <span class="item-label">Presupuesto</span>
+                <span class="item-value">$3,000,000</span>
+
+                <span class="item-label">Explorando el área</span>
+                <span class="item-value">Nuevo Leon</span>
+            </div>
+
+            <div class="favorites">
+                <div class="favorites-header text-center">
+                    <i class="material-icons">favorite</i>
+                    Favoritos
+                </div>
+
+                <div class="favorites-container">
+                    <ul class="favorites-list">
+                        <li>
+                            <mat-checkbox>Opcion 1</mat-checkbox>
+                        </li>
+                        <li>
+                            <mat-checkbox>Opcion 2</mat-checkbox>
+                        </li>
+                        <li>
+                            <mat-checkbox>Opcion 3</mat-checkbox>
+                        </li>
+                    </ul>
+
+                    <div class="text-right">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-10 no-padding card-section">
+        <div class="row no-padding" style="margin: 0px;">
+            <div class="col-10 offset-1 no-padding">
+                <div class="row">
+                    <div class="card-row col-sm-4" *ngFor="let i of [1,2,3]; let n = index;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1> Opción #{{n + 1}} </h1>
+                                <hr>
+                                <h2> Retorno de inversión </h2>
+                                <p> Ganancia de inversión: $1,000.00 </p>
+                                <p> ROI: 100% </p>
+                                <p> ROI anualizado: 18.13% </p>
+                                <p> Duración de inversión: 4.16 años </p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

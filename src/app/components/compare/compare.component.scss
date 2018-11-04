@@ -1,0 +1,109 @@
+@import '../../../assets/colors.scss';
+
+.map-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+
+    agm-map {
+        height: inherit;
+    }
+}
+
+.shadow {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: 500;
+    background-color: rgba(0,0,0,0.66);
+}
+
+.highlight {
+    z-index: 501;
+}
+
+.card-section {
+    background-color: $black-background;
+    height: 100vh;
+    .card-row {
+        margin-top: 72px;
+    }
+}
+
+.sidebar { 
+    background-color: $black-background;
+    color: #fff;
+    height: 100vh;
+    .sidebar-header {
+        height: 80px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        padding-top: 20px;
+        font-size: 24px;
+        margin-bottom: 15px;
+
+        .logo {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            img {
+                width: 65px;
+            }
+        }
+    }
+    
+    .explore-info {
+        padding: 5px;
+        span { 
+            display: block;
+        }
+
+        .item-label { 
+            font-size: 20px;
+        }
+
+        .item-value {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .favorites {
+        position: relative;
+        .favorites-header{ 
+            font-weight: bold;
+            border-bottom: 1px solid $white;
+            i {
+                color: $favorite-red;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .favorites-container {
+            .favorites-list {
+                list-style: none;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.card-body {
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    h2 {
+        font-size: 1.125rem;
+        margin-bottom: 6px;
+    }
+    p{
+        font-size: 0.875rem;
+        margin-bottom: 0px;
+    }
+}
