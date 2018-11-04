@@ -26,14 +26,27 @@
 
 .card-section {
     background-color: $black-background;
-    height: 100vh;
+    min-height: 100vh;
+    .card {
+        border-radius: 16px;
+    }
     .card-row {
-        margin-top: 48px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    .card-title {
+        margin-bottom: 48px;
+    }
+    .store {
+        width: 20px;
+        height: 20px;
+    }
+    a{
+        color: #fff;
     }
 }
 
 .sidebar { 
-    background-color: $black-background;
     color: #fff;
     height: 100vh;
     .sidebar-header {
@@ -41,7 +54,7 @@
         width: 100%;
         text-align: center;
         position: relative;
-        padding-top: 20px;
+        padding: 20px 10px;
         font-size: 24px;
         margin-bottom: 15px;
 
@@ -49,8 +62,9 @@
             position: absolute;
             left: 0;
             top: 2px;
+            margin-top: 66px;
             img {
-                width: 65px;
+                width: 85px;
             }
         }
     }
@@ -62,48 +76,43 @@
         }
 
         .item-label { 
-            font-size: 20px;
-        }
-
-        .item-value {
+            margin-top: 96px;
             font-size: 40px;
-            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 48px;
         }
     }
 
-    .favorites {
-        position: relative;
-        .favorites-header{ 
-            font-weight: bold;
-            border-bottom: 1px solid $white;
-            i {
-                color: $favorite-red;
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-        }
+    .sidebar-bottom-bar {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
 
-        .favorites-container {
-            .favorites-list {
-                list-style: none;
-                padding: 10px;
-            }
+        p,
+        i {
+            cursor: pointer;
         }
     }
 }
 
 .card-body {
     h1 {
-        font-size: 1.125rem;
-        margin-bottom: 6px;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 0px;
     }
     h2 {
-        font-size: 1.125rem;
-        margin-bottom: 6px;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0px;
     }
     p{
-        font-size: 0.875rem;
+        font-size: 15px;
+        line-height: 20px;
         margin-bottom: 0px;
     }
 }
