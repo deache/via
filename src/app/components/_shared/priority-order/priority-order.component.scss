@@ -1,0 +1,35 @@
+.option-container {
+    height: 68px;
+}
+
+.option-box {
+    height: 36px;
+    width: 375px;
+    background-color: #00A77F;
+    margin-bottom: 32px;
+    border-radius: 16px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+}
+
+.option-box.ghost {
+    border-color: #00A77F;
+    border-style: dashed;
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+.option-container h2 {
+    margin: 0px;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+
+.option-box h2 {
+	color: #FFFFFF;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1.25px;
+	line-height: 16px;
+    text-align: center;
+}

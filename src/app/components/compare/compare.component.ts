@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { PriorityOrderComponent } from '../_shared/priority-order/priority-order.component';
 
 @Component({
     selector: 'app-compare',
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class CompareComponent {
-    constructor() {}
+
+    @ViewChild(PriorityOrderComponent)
+    priorityOrder: PriorityOrderComponent;
+
+    constructor() { }
+
+    showSelectedPriorityOptions() {
+        alert(JSON.stringify(this.priorityOrder.getPriorityOptions()));
+    }
 }
