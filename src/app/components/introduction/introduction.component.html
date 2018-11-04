@@ -3,11 +3,26 @@
     </agm-map>
 </div>
 <div class="steps-wrapper">
-    <div class="speak-msg text-center" [ngClass]="{'fadeDiagonal': stateDiag}">
-        <img src="../../../assets/logo.svg" alt="">
+    <div class="speak-msg text-center" [ngClass]="{'fadeDiagonal': stateDiag, 'fadeExpand': expanded}">
+        <img src="../../../assets/logo.svg" alt="" [ngClass]="{'fadeOut': fadeLogo, 'fadeIn': fadeInLogo}">
         <div class="speak-msg__text" [ngClass]="{'fadeIn': stateFade, 'fadeOut': !stateFade}" [innerHTML]="question">
         </div>
     </div>
+    <app-priority-order #order *ngIf="orderShow" [ngClass]="{'fadeIn': stateFade && showContent, 'fadeOut': !stateFade && !showContent}"></app-priority-order>
+    <div class="quantity-view" *ngIf="quantityShow" [ngClass]="{'fadeIn': stateFade && showContentQua, 'fadeOut': !stateFade && !showContentQua}">
+        <h2>Ingrese cantidad {{quantity}}</h2>
+        <input type="text" placeholder="Escriba aqui" [(ngModel)]="quantity">
+        <br><br><br><br>
+        <h2>Seleccione un estado {{state}}</h2>        
+        <select class="form-control" [(ngModel)]="state">
+            <option [ngValue]="c">>montr</option>
+
+        </select>
+    </div>
+    <!-- <div class="states-view" *ngIf="stateShow" [ngClass]="{'fadeIn': stateFade && showContentSts, 'fadeOut': !stateFade && !showContentSts}">
+        <h2>Ingrese cantidad</h2>
+        <input type="text" placeholder="Escriba aqui" [(ngModel)]="quantity">
+    </div> -->
     <div class="step-btns" *ngIf="stepActive > 1">
         <span (click)="prev()"><</span>&nbsp;<span (click)="next()">></span>
     </div>

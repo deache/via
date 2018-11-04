@@ -1,5 +1,59 @@
 @import '../../../assets/colors';
 
+h2{
+    height: 28px;
+    width: 100%;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -0.38px;
+    line-height: 28px;
+    margin-bottom: 50px;
+}
+
+input{
+    padding: 15px;    
+}
+
+option{
+    color: black;
+}
+
+input, select, select:focus {
+    background: transparent;
+    color: white;
+    border: 1px solid;
+    border-radius: 4px;
+    width: 400px;
+    &::placeholder {
+        height: 24px;	
+        width: 380px;	
+        color: #FFFFFF;	
+        font-size: 16px;	
+        font-style: italic;	
+        font-weight: 500;	
+        letter-spacing: 0.15px;	
+        line-height: 24px;
+    }
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+app-priority-order{
+    position: absolute;
+    top: 20%;
+    right: 35%;
+}
+
+.quantity-view {
+    position: absolute;
+    top: 13%;
+    right: 21%;
+}
+
 .map-container {
     position: relative;
     width: 100%;
@@ -56,6 +110,17 @@
 
     @keyframes shine {
         100%       { transform: translatex(-610px) translatey(-300px) scale(.5) }
+    
+    } 
+
+    .fadeExpand{
+        animation-name: expand;
+        animation-duration: 5s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes expand {
+        100%       { transform: translatex(610px) translatey(300px) scale(initial) }
     
     } 
 }

@@ -2,7 +2,7 @@
   <div *ngFor="let item of priorityOptions; let i = index" [dndDraggable]="item" [dndEffectAllowed]="item.effectAllowed"
     (dndMoved)="onDragged(item, priorityOptions, 'move')" (dndCanceled)="onDragged(item, priorityOptions, 'none')">
     <div class="media option-container">
-      <h2 class="mr-5"> {{ i + 1 }} </h2>
+      <h1 class="mr-5"> {{ i + 1 }} </h1>
       <div class="mr-3 option-box d-flex justify-content-center align-items-center">
         <h2>{{item.content}}</h2>
       </div>

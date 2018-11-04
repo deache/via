@@ -3,6 +3,7 @@ import { GoogleMapsAPIWrapper, MapsAPILoader,  } from '@agm/core';
 import { GoogleMap, Marker, MarkerOptions } from '@agm/core/services/google-maps-types';
 declare var google: any;
 import Speech from 'speak-tts';
+import { ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-introduction',
@@ -10,20 +11,35 @@ import Speech from 'speak-tts';
     styleUrls: ['./introduction.component.scss']
 })
 
-export class IntroductionComponent{
+export class IntroductionComponent {
+
+    @ViewChild('order') public _order;
+
     private speech: Speech = new Speech();
 
     private stepActive: number;
+    private quantity: number;
+    private state: number;
 
     private stateFade: boolean;
+    private showContent: boolean;
+    private showContentQua: boolean;
+    private showContentSts: boolean;
+    private orderShow: boolean;
+    private expanded: boolean = false;
     private stateDiag: boolean = false;
+    private fadeLogo: boolean = false;
+    private fadeInLogo: boolean = false;
+
+    private quantityShow: boolean = false;
+    private stateShow: boolean = false;
 
     private question: string;
     private questions: Array<any> = [
         {m: '¡Hola Pedro!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5500, s: 1},
         {m: '¿Cuales son las prioridades del<br>cliente?', t: 4000, s: 2},
-        {m: '¿Cuál es el presupuesto con el que se<br>cuenta?', t: 5000, s: 3},
-        {m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4}
+        {m: '¿Cuál es el presupuesto y <br>el área de interes?', t: 4000, s: 3},
+        // {m: '¿Que área vamos a explorar hoy?', t: 5000, s: 4}
     ];
 
     constructor() {
@@ -42,12 +58,58 @@ export class IntroductionComponent{
         this.stepActive = step.s;
 
         if (speak) {
-            this.speakTime(step);
+            switch (step.s) {
+                case 1:
+                    this.speakTime(step);
+                    break;
+                case 2:
+                    this.speakTime(step);
+                    break;
+                case 3:
+                    this.expanded = false;
+                    this.fadeLogo = false;
+                    this.fadeInLogo = false;
+                    this.timeOutDiagonal(step);
+                    break;
+                // case 4:
+                //     this.expanded = false;
+                //     this.fadeLogo = false;
+                //     this.fadeInLogo = false;
+                //     this.timeOutDiagonal(step);
+                //     break;
+            }
         } else {
-            setTimeout(() => {
-                this.stateDiag = true;
-            }, step.t);
+            this.timeOutDiagonal(step);
         }
+    }
+
+    private timeOutDiagonal(step) {
+        setTimeout(() => {
+            this.stateDiag = true;
+            switch (step.s) {
+                case 2:
+                    setTimeout(() => {
+                       this.stateFade = true;
+                       this.showContent = true;
+                       this.orderShow = true;
+                    }, 3000);
+                    break;
+                case 3:
+                    setTimeout(() => {
+                       this.stateFade = true;
+                       this.quantityShow = true;
+                       this.showContentQua = true;
+                    }, 3000);
+                    break;
+                // case 3:
+                //     setTimeout(() => {
+                //        this.stateFade = true;
+                //        this.quantityShow = true;
+                //        this.showContentQua = true;
+                //     }, 3000);
+                //     break;
+            }
+        }, step.t);
     }
 
     private speakTime(step: any): void {
@@ -61,7 +123,37 @@ export class IntroductionComponent{
         }, step.t);
     }
 
+    private continuedFlow(i: number): void {
+        setTimeout(() => {
+            this.question = this.questions[i].m;
+            this.stateFade = true;
+            this.fadeInLogo = true;
+            this.orderShow = false;
+            this.quantityShow = false;
+            this.stateDiag = false;
+            this.expanded = true;
+            this.speak(this.questions[i], true);
+        }, 3000);
+    }
+
     private next(): void {
+        switch (this.stepActive) {
+            case 2:
+                setTimeout(() => {
+                   this.stateFade = false;
+                   this.showContent = false;
+                   this.fadeLogo = true;
+                   this.continuedFlow(2);
+                }, 100);
+                break;
+            case 3:
+                setTimeout(() => {
+                    this.stateFade = false;
+                    this.showContentQua = false;
+                    this.fadeLogo = true;
+                    this.continuedFlow(3);
+                }, 100);
+        }
 
     }
 

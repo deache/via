@@ -14,6 +14,7 @@ import { IntroductionComponent } from 'src/app/components/introduction/introduct
 import { CompareComponent } from 'src/app/components/compare/compare.component';
 import { ExplorationComponent } from './components/exploration/exploration.component';
 import { PriorityOrderComponent } from './components/_shared/priority-order/priority-order.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'introduction', component: IntroductionComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatCheckboxModule,
     DndModule,
     RouterModule.forRoot(appRoutes),
