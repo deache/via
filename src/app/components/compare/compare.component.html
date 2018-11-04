@@ -1,13 +1,56 @@
-<div class="bg-image"></div>
+<div class="map-container">
+    <agm-map #AgmMap [latitude]="lat" [longitude]="lng" [styles]="styles" (mapReady)="mapReady($event)">
+    </agm-map>
+</div>
 <div class="row">
-    <div class="col-md-12" style="height: 128px;"></div>
-    <div class="col-md-5 text-center">
-        <br>
-    </div>
-    <div class="col-md-5">
-        <app-priority-order></app-priority-order>
-    </div>
-    <div class="col-md-12">
-        <button type="button" class="btn btn-primary float-right" (click)="showSelectedPriorityOptions()"> Get Selected Priority Options</button>
+    <div class="col-12 no-padding card-section">
+        <div class="row no-padding" style="margin: 0px;">
+            <div class="col-10 offset-1 no-padding">
+                <div class="row">
+                    <div class="card-row col-sm-4" *ngFor="let pos of optionPointOfSales; let n = index;">
+                        <div class="card">
+                            <div class="card-body" *ngIf="isLoading">
+                                <div class="loading skeleton-title"></div>
+                                <div class="loading skeleton-body"></div>
+                                <div class="loading skeleton-body"></div>
+                                <hr>
+                                <div class="loading skeleton-title"></div>
+                                <div class="loading skeleton-body"></div>
+                                <div class="loading skeleton-body"></div>
+                                <hr>
+                                <div class="loading skeleton-title"></div>
+                                <div class="loading skeleton-body"></div>
+                                <div class="loading skeleton-body"></div>
+                                <hr>
+                                <div class="loading skeleton-title"></div>
+                                <div class="loading skeleton-body"></div>
+                                <div class="loading skeleton-body"></div>
+                                <hr>
+                            </div>
+
+                            <div class="card-body" *ngIf="isLoading === false">
+                                <h1> {{pos.location.street}} </h1>
+                                <h1> {{pos.location.neighborhood}} </h1>
+                                <h1> CP {{pos.location.zipCode}} {{pos.location.area}} </h1>
+                                <hr>
+                                <h2> Inversión </h2>
+                                <p> Ganancia de inversión: {{pos.investmentEarnings}} </p>
+                                <p> Duración de inversión: {{pos.investmentDuration}} </p>
+                                <hr>
+                                <h2> Población y Empresas </h2>
+                                <p> {{pos.populationNow}} habitantes en la zona</p>
+                                <p> {{pos.populationProjection}} habitantes en los próximos años</p>
+                                <p> {{pos.companiesCompetitors}} empresas competidores </p>
+                                <p> {{pos.companiesFavorables}} empresas favorables </p>
+                                <hr>
+                                <h2> Misceláneo </h2>
+                                <p> Tránsito de {{pos.transitPerHour}} vehículos por hora </p>
+                                <p> Metro cuadrado: {{pos.squareMeterCost}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -16,7 +16,7 @@ export class PriorityOrderComponent {
       handle: false,
     },
     {
-      content: "ANALISIS DE COMPETENCIA",
+      content: "ANÁLISIS DE COMPETENCIA",
       effectAllowed: "move",
       disable: false,
       handle: false,
@@ -49,9 +49,6 @@ export class PriorityOrderComponent {
 
   constructor() { }
 
-  onDragStart(event: DragEvent) {
-  }
-
   onDragged(item: any, list: any[], effect: DropEffect) {
     if (effect === "move") {
       const index = list.indexOf(item);
@@ -69,6 +66,10 @@ export class PriorityOrderComponent {
 
       list.splice(index, 0, event.data);
     }
+  }
+
+  deleteOption(index: number) {
+    this.priorityOptions.splice(index, 1);
   }
 
   getPriorityOptions() {

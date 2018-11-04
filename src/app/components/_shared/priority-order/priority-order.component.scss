@@ -3,18 +3,27 @@
 }
 
 .option-box {
-    height: 36px;
-    width: 375px;
-    background-color: #00A77F;
+    box-sizing: border-box;
+    height: 48px;
+    width: 256px;
+    background-color: transparent;
     margin-bottom: 32px;
-    border-radius: 16px;
+    border: 1px solid #FFFFFF;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
 }
 
+.option-box.icon {
+    width: initial;
+    border: initial;
+    box-shadow: initial;
+    .material-icons {
+        text-shadow: 0 1px 0 #000;
+        color: #fff
+    }
+}
+
 .option-box.ghost {
-    border-color: #00A77F;
     border-style: dashed;
-    background-color: transparent;
     opacity: 0.5;
 }
 
