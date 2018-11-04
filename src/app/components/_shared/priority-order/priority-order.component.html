@@ -1,0 +1,19 @@
+<div dndDropzone dndEffectAllowed="move" (dndDrop)="onDrop($event, priorityOptions)">
+  <div dndPlaceholderRef>
+    <div class="media option-container ghost">
+      <h2 class="mr-5"> *. </h2>
+      <div class="option-box ghost d-flex justify-content-center align-items-center">
+        <h2> DROP OPTION HERE </h2>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let item of priorityOptions; let i = index" [dndDraggable]="item" [dndEffectAllowed]="item.effectAllowed"
+    (dndStart)="onDragStart($event)" (dndMoved)="onDragged(item, priorityOptions, 'move')" (dndCanceled)="onDragged(item, priorityOptions, 'none')">
+    <div class="media option-container">
+      <h2 class="mr-5"> {{ i + 1 }}. </h2>
+      <div class="option-box d-flex justify-content-center align-items-center">
+        <h2>{{item.content}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
