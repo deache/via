@@ -1,0 +1,49 @@
+@import '../../../assets/colors.scss';
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    agm-map {
+        height: inherit;
+    }
+}
+
+.sidebar { 
+    .sidebar-header {
+        background-color: $black-background;
+        height: 50px;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        padding-top: 10px;
+        font-size: 24px;
+        margin-bottom: 15px;
+
+        .logo {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            img {
+                width: 45px;
+            }
+        }
+    }
+    
+    .favorites {
+        position: relative;
+        border-bottom: 1px solid $black-background;
+    
+        .favorites-header{ 
+            font-weight: bold;
+            i {
+                color: $favorite-red;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
