@@ -20,7 +20,7 @@
         width: 100%;
         text-align: center;
         position: relative;
-        padding-top: 20px;
+        padding: 20px 10px;
         font-size: 24px;
         margin-bottom: 15px;
 
@@ -29,7 +29,7 @@
             left: 0;
             top: 2px;
             img {
-                width: 65px;
+                width: 85px;
             }
         }
     }
@@ -47,27 +47,80 @@
         .item-value {
             font-size: 40px;
             margin-bottom: 40px;
+
+            &.last{ 
+                margin-bottom: 0px;
+            }
         }
     }
 
     .favorites {
         position: relative;
+        padding: 5px;
         .favorites-header{ 
-            font-weight: bold;
-            border-bottom: 1px solid $white;
-            i {
-                color: $favorite-red;
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
+            font-size: 16px;
         }
 
         .favorites-container {
             .favorites-list {
                 list-style: none;
                 padding: 10px;
+
+                li { 
+                    border-bottom: 1px solid #cccccc6b;
+                    padding: 10px 0;
+                }
+
+                i{
+                    margin-right: 5px;
+                    vertical-align: top;
+                    &.right { 
+                        float: right;
+                    }
+                }
+            }
+
+            .submit-button { 
+                border: 0;
+                background: transparent;
+                color: $white;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #ccccccb0;
+                cursor: pointer;
             }
         }
+    }
+}
+
+
+.layers-controller {
+    border-radius: 16px;
+    width: 200px;
+    height: 220px;
+    padding: 20px;
+    background-color: $black-background;
+    color: #fff;
+    position: absolute;
+    bottom: 53px;
+    right: 50px;
+
+    .layers-list {
+        padding: 0; 
+        list-style: none;
+    }
+}
+.layers-toggle { 
+    position: absolute;
+    bottom: 27px;
+    right: 82px;
+    background-color: #00A77F;
+}
+
+.slider-container { 
+    color: #fff;
+    padding: 5px;
+    .mat-slider {
+        width: 100%;
     }
 }

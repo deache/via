@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DndModule } from 'ngx-drag-drop';
 
 // Vendors
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatButtonModule, MatSliderModule, GestureConfig, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
@@ -14,6 +14,7 @@ import { IntroductionComponent } from 'src/app/components/introduction/introduct
 import { CompareComponent } from 'src/app/components/compare/compare.component';
 import { ExplorationComponent } from './components/exploration/exploration.component';
 import { PriorityOrderComponent } from './components/_shared/priority-order/priority-order.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'introduction', component: IntroductionComponent },
@@ -31,15 +32,20 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatSelectModule,
     DndModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAb0m2qsu5odK1JdmLa0EgFOiEZtn51NhQ'
     })
   ],
-  providers: [GoogleMapsAPIWrapper],
+  providers: [HttpClient, GoogleMapsAPIWrapper, { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

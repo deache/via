@@ -118,4 +118,39 @@ export class Constants {
             ]
         }
     ];
+
+    public static states = [
+        { 'estado': 'Aguascalientes', 'id': '01' },
+        { 'estado': 'Baja California', 'id': '02' },
+        { 'estado': 'Baja California Sur', 'id': '03'},
+        { 'estado': 'Campeche', 'id': '04' },
+        { 'estado': 'Coahuila', 'id': '05' },
+        { 'estado': 'Colima', 'id': '06' },
+        { 'estado': 'Chiapas', 'id': '07' },
+        { 'estado': 'Chihuahua ', 'id': '08' },
+        { 'estado': 'Distrito Federal', 'id': '09' },
+        { 'estado': 'Durango', 'id': '10' },
+        { 'estado': 'Guanajuato', 'id': '11' },
+        { 'estado': 'Guerrero', 'id': '12' },
+        { 'estado': 'Hidalgo', 'id': '13' },
+        { 'estado': 'Jalisco', 'id': '14' },
+        { 'estado': 'México', 'id': '15' },
+        {'estado': 'Michoacán', 'id': '16' },
+        {'estado': 'Morelos', 'id': '17' },
+        {'estado': 'Nayarit', 'id': '18' },
+        {'estado': 'Nuevo León', 'id': '19' },
+        {'estado': 'Oaxaca', 'id': '20' },
+        {'estado': 'Puebla', 'id': '21' },
+        {'estado': 'Querétaro', 'id': '22' },
+        { 'estado': 'Quintana Roo', 'id': '23' },
+        { 'estado': 'San Luis Potosí', 'id': '24' },
+        { 'estado': 'Sinaloa', 'id': '25' },
+        { 'estado': 'Sonora', 'id': '26' },
+        { 'estado': 'Tabasco', 'id': '27' },
+        { 'estado': 'Tamaulipas', 'id': '28' },
+        { 'estado': 'Tlaxcala', 'id': '29' },
+        { 'estado': 'Veracruz', 'id': '30' },
+        { 'estado': 'Yucatán', 'id': '31' },
+        { 'estado': 'Zacatecas', 'id': '32'}
+    ];
 }
