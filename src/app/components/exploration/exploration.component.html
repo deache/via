@@ -18,7 +18,7 @@
 
             <div class="explore-info">
                 <span class="item-label">Explorando el área</span>
-                <span class="item-value">Nuevo Leon</span>
+                <span class="item-value">{{ state }}</span>
             
                 <span class="item-label">Presupuesto</span>
                 <span class="item-value last">{{ budget | currency:'USD':'symbol':'1.0-0' }}</span>
@@ -34,13 +34,13 @@
 
                 <div class="favorites-container">
                     <ul class="favorites-list">
-                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407<i class="material-icons right">favorite</i></li>
-                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407 <i class="material-icons right">favorite</i></li>
-                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407<i class="material-icons right">favorite</i></li>
+                        <li> <i class="material-icons">location_on</i>Puerta del Sol #407 Col. Santa Martha<i class="material-icons right">favorite</i></li>
+                        <li> <i class="material-icons">location_on</i>Vicente Guerrero #371 Col. Mitras Centro <i class="material-icons right">favorite</i></li>
+                        <li> <i class="material-icons">location_on</i>Miguel Aleman #222, Col La Fe<i class="material-icons right">favorite</i></li>
                     </ul>
 
                     <div class="text-right">
-                        <button class="submit-button">Comparar</button>
+                        <button (click)="goToCompare()" class="submit-button">Comparar</button>
                     </div>
                 </div>
             </div>

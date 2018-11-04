@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CoreService {
-  private apiUrl = 'https://b9bbcc68.ngrok.io/';
+  private apiUrl = 'https://8bef3bee.ngrok.io/';
   public pesos = {};
   public newConstruramas = [];
 

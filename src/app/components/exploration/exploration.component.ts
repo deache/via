@@ -3,6 +3,7 @@ import { GoogleMapsAPIWrapper, MapsAPILoader,  } from '@agm/core';
 import { GoogleMap, Marker, MarkerOptions } from '@agm/core/services/google-maps-types';
 import { Constants } from '../../constants';
 import { CoreService } from '../../services/core.service';
+import { Router } from '@angular/router';
 declare var google: any;
 
 @Component({
@@ -17,16 +18,19 @@ export class ExplorationComponent {
     public layersActive = false;
     public mapCenterLat = 25.4688014;
     public mapCenterLng = -102.0587418;
+
     private markerOptions: MarkerOptions = {
         position: { lat: 25.673946, lng: -100.420318 },
         clickable: false,
     };
     budget = 3000000;
     map: GoogleMap;
+    state: any;
 
     constructor(public _wrapper: GoogleMapsAPIWrapper,
                 public googleApi: MapsAPILoader,
-                private core: CoreService) {
+                private core: CoreService,
+                private router: Router) {
         this.core.getPolygons().subscribe((data: any) => {
             const polygons = JSON.parse(data.Polygons[0]);
 
@@ -58,7 +62,7 @@ export class ExplorationComponent {
                     map: this.map,
                     title: 'Construrama'
                 });
-                marker.setIcon('../../../assets/markers/blue.png');
+                marker.setIcon('../../../assets/markers/construramas.png');
                 marker.setMap(this.map);
             }
 
@@ -69,22 +73,36 @@ export class ExplorationComponent {
                     map: this.map,
                     title: 'Competidor'
                 });
-                marker.setIcon('../../../assets/markers/green.png');
+                marker.setIcon('../../../assets/markers/competidors.png');
                 marker.setMap(this.map);
             }
         });
+
+        const pesos: any = this.core.getPesos();
+        this.state = pesos.state;
+        this.budget = pesos.inversion;
     }
 
     mapReady(map: GoogleMap) {
         this.map = map;
-        const marker = new google.maps.Marker({
-            position: {lat: 40.706130, lng: -74.076870},
-            map: this.map,
-            title: ''
-        });
+        const newConstruramas = this.core.getNewConstruramas();
+        console.log("new construramas", newConstruramas);
+        for (const item of newConstruramas) {
+            const marker = new google.maps.Marker({
+                position: {lat: item.Lat, lng: item.Long },
+                map: this.map,
+                title: 'Nuevo Construrama'
+            });
+            marker.setIcon('../../../assets/markers/new.png');
+            marker.setMap(this.map);
+        }
     }
 
     budgetChange(data) {
         this.budget = data.value;
+    }
+
+    goToCompare() {
+        this.router.navigate(['compare']);
     }
 }

@@ -14,9 +14,8 @@
         <input type="text" placeholder="Escriba aqui" [(ngModel)]="quantity">
         <br><br><br><br>
         <h2>Seleccione un estado</h2>        
-        <select class="form-control" [(ngModel)]="state">
-            <option *ngFor="let s of states" [ngValue]="s.id">{{s.estado}}</option>
-
+        <select class="form-control" [(ngModel)]="state" placeholder="Selecciona estado">
+            <option *ngFor="let s of states" [ngValue]="s">{{s.estado}}</option>
         </select>
     </div>
     <!-- <div class="states-view" *ngIf="stateShow" [ngClass]="{'fadeIn': stateFade && showContentSts, 'fadeOut': !stateFade && !showContentSts}">

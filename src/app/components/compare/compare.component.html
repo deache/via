@@ -5,8 +5,33 @@
 <div class="row">
     <div class="col-12 no-padding card-section">
         <div class="row no-padding" style="margin: 0px;">
-            <div class="col-10 offset-1 no-padding">
-                <div class="row">
+            <div class="col-2 no-padding">
+                <div class="sidebar ml-3">
+                    <div class="sidebar-header">
+                        <div class="logo ml-2">
+                            <img src="../../../assets/logo.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="explore-info">
+                        <span class="item-label">Análisis comparativo</span>
+                    </div>
+                    <div class="sidebar-bottom-bar">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a [routerLink]="'/exploration'">
+                                    <i class="material-icons"> arrow_back </i>
+                                </a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <p> Exportar </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 offset-1 no-padding">
+                <div class="row" style="margin: 0px;">
                     <div class="card-row col-sm-4" *ngFor="let pos of optionPointOfSales; let n = index;">
                         <div class="card">
                             <div class="card-body" *ngIf="isLoading">
@@ -29,23 +54,28 @@
                             </div>
 
                             <div class="card-body" *ngIf="isLoading === false">
-                                <h1> {{pos.location.street}} </h1>
-                                <h1> {{pos.location.neighborhood}} </h1>
-                                <h1> CP {{pos.location.zipCode}} {{pos.location.area}} </h1>
-                                <hr>
+                                <div class="card-title">
+                                    <h1> {{pos.location.street}} </h1>
+                                    <h1> {{pos.location.neighborhood}} </h1>
+                                    <h1> CP {{pos.location.zipCode}} {{pos.location.area}} </h1>
+                                </div>
                                 <h2> Inversión </h2>
-                                <p> Ganancia de inversión: {{pos.investmentEarnings}} </p>
-                                <p> Duración de inversión: {{pos.investmentDuration}} </p>
+                                <p> Inicial • {{pos.investmentEarnings}} </p>
+                                <p> ROI • {{pos.investmentDuration}} </p>
                                 <hr>
-                                <h2> Población y Empresas </h2>
-                                <p> {{pos.populationNow}} habitantes en la zona</p>
-                                <p> {{pos.populationProjection}} habitantes en los próximos años</p>
-                                <p> {{pos.companiesCompetitors}} empresas competidores </p>
-                                <p> {{pos.companiesFavorables}} empresas favorables </p>
+                                <h2> Indices de Población </h2>
+                                <p> Habitantes en el área • {{pos.populationNow}} </p>
+                                <p> Crecimiento estimado • {{pos.populationProjection}} </p>
+                                <hr>
+                                <h2> Competencia </h2>
+                                <p> <img class="store" src="../../../assets/icons/stores-competitor.png"> Otros
+                                    Negocios del Rubro • {{pos.companiesCompetitors}} </p>
+                                <p> <img class="store" src="../../../assets/icons/store-allies.png"> Construramas en el
+                                    área • {{pos.companiesFavorables}} </p>
                                 <hr>
                                 <h2> Misceláneo </h2>
-                                <p> Tránsito de {{pos.transitPerHour}} vehículos por hora </p>
-                                <p> Metro cuadrado: {{pos.squareMeterCost}}</p>
+                                <p> Flujo Vial • {{pos.transitPerHour}} vehículos/hr </p>
+                                <p> Costo • {{pos.squareMeterCost}} m2 </p>
                             </div>
                         </div>
                     </div>
