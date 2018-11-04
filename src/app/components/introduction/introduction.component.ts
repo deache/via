@@ -24,7 +24,7 @@ export class IntroductionComponent {
 
     private stepActive: number;
     private quantity: number;
-    private state: number;
+    private state: any;
 
     private stateFade: boolean;
     private showContent: boolean;
@@ -156,7 +156,8 @@ export class IntroductionComponent {
                 const pesos = {
                     pesos: this._order.getPriorityOptions().map( it => it.content),
                     inversion: this.quantity,
-                    estado: this.state
+                    estado: this.state.id,
+                    state: this.state.estado,
                 };
 
                 this.core.postIntroduction(pesos).subscribe((data: any) => {
