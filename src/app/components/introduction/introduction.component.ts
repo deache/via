@@ -42,15 +42,15 @@ export class IntroductionComponent {
     private question: string;
     private questions: Array<any> = [
         {
-            speak: '¡Hola Pedro! Bienvenido de regreso, encontremos el mejor punto de venta',
-            m: '¡Hola Pedro!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5500, s: 1
+            speak: '¡Hola Daniel! Bienvenido de regreso, encontremos el mejor punto de venta',
+            m: '¡Hola Daniel!<br/>Bienvenido de regreso, encontremos<br>el mejor punto de venta', t: 5900, s: 1
         },
         {
             speak: '¿Cuales son las prioridades del cliente?',
             m: '¿Cuales son las prioridades del<br>cliente?', t: 4000, s: 2
         },
         {
-            speak: '¿Cuál es el presupuesto y <br>el área de interés?',
+            speak: '¿Cuál es el presupuesto y el área de interés?',
             m: '¿Cuál es el presupuesto y <br>el área de interes?', t: 4000, s: 3
         },
         {
@@ -63,6 +63,7 @@ export class IntroductionComponent {
 
         this.question = this.questions[0].m;
         this.stateFade = true;
+        this.speech.setLanguage('es-US');
         this.speak(this.questions[0], true);
     }
 

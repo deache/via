@@ -85,6 +85,7 @@ export class ExplorationComponent {
 
     mapReady(map: GoogleMap) {
         this.map = map;
+        this.map.setCenter({lat: 25.686613, lng: -100.316116});
         const newConstruramas = this.core.getNewConstruramas();
         console.log("new construramas", newConstruramas);
         for (const item of newConstruramas) {
